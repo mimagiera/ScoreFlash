@@ -15,7 +15,7 @@ import java.util.concurrent.Future;
 
 public class DataSource<T> {
 
-    private static String TOKEN = "4cb64836b12549da916bf6b87e17b679";
+    private static String TOKEN = ""; //Your token here
 
     public T getObjectFromJson(String urlTarget, Class<T> myClass) throws ExecutionException, InterruptedException {
         Gson gson = new Gson();
