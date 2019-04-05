@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ScoreFlash</string>
+    <string name="competitions">Competitions</string>
+    <string name="matches">Matches</string>
+    <string name="next_button">-&gt;</string>
+    <string name="prev_button">&lt;-</string>
+    <string name="matchesDate">date</string>
+    <string name="score_separator">:</string>
+    <string name="title_activity_single_match">single_match</string>
+</resources>

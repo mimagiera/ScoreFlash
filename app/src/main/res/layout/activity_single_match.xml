@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:id="@+id/singleMatch_topLayout">
+
+        <TextView
+            android:id="@+id/textView_singleMatch_Competition"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/competitions"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+        <TextView
+            android:id="@+id/textView_singleMatch_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/matchesDate"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/singleMatch_teamNames"
+        android:layout_below="@+id/singleMatch_topLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/singleMatch_homeTeamName"
+            android:text="Home"
+            android:gravity="center"
+            android:layout_weight="1"
+            tools:ignore="HardcodedText" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:gravity="center">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/singleMatch_homeTeamScore"
+                android:text="0"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/score_separator"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/singleMatch_awayTeamScore"
+                android:text="1"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/singleMatch_awayTeamName"
+            android:text="Away"
+            android:gravity="center"
+            android:layout_weight="1"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/singleMatch_teamNames"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-1dp"
+        android:baselineAligned="false">
+
+        <ListView
+            android:id="@+id/singleMatch_listView_homePlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ListView
+            android:id="@+id/singleMatch_listView_awayPlayers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+</RelativeLayout>
