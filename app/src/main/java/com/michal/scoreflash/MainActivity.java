@@ -6,8 +6,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -27,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     ListView listView;
     String url = "http://api.football-data.org/v2/competitions";
-    List<String> arrayList = new ArrayList<>();
+    List<String> listOfCompetitionsNames = new ArrayList<>();
     ArrayAdapter<String> arrayAdapter;
 
     SwipeRefreshLayout pullToRefresh;
@@ -40,21 +38,19 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
 
-        arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,arrayList);
+        arrayAdapter = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1, listOfCompetitionsNames);
         listView = findViewById(R.id.listView1);
         listView.setAdapter(arrayAdapter);
 
         setData();
-        arrayAdapter.notifyDataSetChanged();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(MainActivity.this, MatchesActivity.class);
-                String competitionName = arrayList.get(position);
+                String competitionName = listOfCompetitionsNames.get(position);
                 String competitionId = mapOfCompetitions.get(competitionName);
                 intent.putExtra(MESSAGE_COMPETITION_ID,competitionId);
                 intent.putExtra(MESSAGE_COMPETITION_NAME,competitionName);
@@ -68,7 +64,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onRefresh() {
                 setData();
-                arrayAdapter.notifyDataSetChanged();
                 pullToRefresh.setRefreshing(false);
             }
         });
@@ -77,17 +72,15 @@ public class MainActivity extends AppCompatActivity {
     private void setData() {
         DataSource<CompetitionList> dataSource = new DataSource<>();
         CompetitionList competitionList;
-
             try {
-
-                arrayList.clear();
+                listOfCompetitionsNames.clear();
                 competitionList = dataSource.getObjectFromJson(url, CompetitionList.class);
                 for (Competition competition : competitionList.getAvailableCompetitions()) {
                     mapOfCompetitions.put(competition.getName(), competition.getId());
-                    arrayList.add(competition.getName());
+                    listOfCompetitionsNames.add(competition.getName());
                 }
+                arrayAdapter.notifyDataSetChanged();
             } catch (ExecutionException | InterruptedException e) {
-
                 new AlertDialog.Builder(this)
                         .setTitle("Something gone wrong!")
                         .setMessage(e.getMessage() + "\nCheck your internet connection")

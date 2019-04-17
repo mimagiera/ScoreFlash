@@ -1,7 +1,6 @@
 package com.michal.scoreflash;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -72,8 +71,12 @@ public class MatchesAdapter extends ArrayAdapter<Match> implements View.OnClickL
         {
             viewHolder.txtHomeName.setText(match.getHomeTeam().getName());
             viewHolder.txtAwayName.setText(match.getAwayTeam().getName());
-            viewHolder.txtHomeScore.setText(match.getScore().getFullTime().getHomeTeam());
-            viewHolder.txtAwayScore.setText(match.getScore().getFullTime().getAwayTeam());
+            String homeScore = match.getScore().getFullTime().getHomeTeam();
+            String awayScore = match.getScore().getFullTime().getAwayTeam();
+            if(homeScore == null) homeScore="--";
+            if(awayScore == null) awayScore="--";
+            viewHolder.txtHomeScore.setText(homeScore);
+            viewHolder.txtAwayScore.setText(awayScore);
             viewHolder.txtTime.setText(match.getUtcDate().substring(11,16));
         }
         return v;

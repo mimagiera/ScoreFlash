@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -37,7 +38,9 @@ public class MatchesActivity extends AppCompatActivity {
 
     MatchList allMatchesList;
     ArrayList<Match> matchesFromOneDay = new ArrayList<>();
+
     String competitionId;
+    String competitionName;
 
     TextView txtDate;
 
@@ -56,9 +59,9 @@ public class MatchesActivity extends AppCompatActivity {
         setCurrentDate();
 
         Intent intent = getIntent();
-
+        Log.d("AAAAA",intent.toString());
         competitionId = intent.getStringExtra(MainActivity.MESSAGE_COMPETITION_ID);
-        final String competitionName = intent.getStringExtra(MainActivity.MESSAGE_COMPETITION_NAME);
+        competitionName = intent.getStringExtra(MainActivity.MESSAGE_COMPETITION_NAME);
 
         TextView textView = findViewById(R.id.textView2);
         textView.setText(competitionName);

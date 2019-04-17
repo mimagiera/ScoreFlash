@@ -85,6 +85,7 @@ public class SingleMatchActivity extends AppCompatActivity {
         }
         List<String> names = new ArrayList<>();
         String oneLine;
+        if(playerArrayList!=null)
         for(Player player : playerArrayList)
         {
             oneLine=player.getName();

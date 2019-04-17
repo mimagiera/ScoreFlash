@@ -1,67 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-
 <LinearLayout xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal">
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:id="@+id/textView_homeTeamName"
         android:text="Home"
-        android:gravity="center"
         android:layout_weight="1"
+        android:gravity="center"
+        android:layout_margin="10dp"
         tools:ignore="HardcodedText"
         />
+
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:gravity="center">
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_homeTeamScore"
-        android:text="0"
-        tools:ignore="HardcodedText"
-        />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp">
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/score_separator"
-        tools:ignore="HardcodedText" />
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_homeTeamScore"
+            android:text="0"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText"
+            />
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_awayTeamScore"
-        android:text="1"
-        tools:ignore="HardcodedText" />
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/score_separator"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+
+            <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_awayTeamScore"
+            android:text="1"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
     </LinearLayout>
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:id="@+id/textView_awayTeamName"
         android:text="Away"
-        android:gravity="center"
         android:layout_weight="1"
-        tools:ignore="HardcodedText" />
+        android:gravity="center"
+        android:layout_margin="10dp"
+        tools:ignore="HardcodedText"/>
 
-    <View
-        android:layout_width="1dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:background="#088461"/>
-    <TextView
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/textView_time"
-        android:text="time"
-        tools:ignore="HardcodedText" />
+        android:layout_height="match_parent"
+        android:layout_weight = "0">
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:background="#088461"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/textView_time"
+            android:text="time"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            tools:ignore="HardcodedText"
+            />
+    </LinearLayout>
 
 </LinearLayout>
 
