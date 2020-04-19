@@ -1,3 +1,4 @@
+[![HitCount](http://hits.dwyl.com/mimagiera/ScoreFlash.svg)](http://hits.dwyl.com/mimagiera/ScoreFlash) 
 # ScoreFlash
 
 Android app that shows scores of football games.  
